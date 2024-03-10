@@ -356,3 +356,28 @@ export async function searchPosts(searchTerm: string) {
     console.log(error);
   }
 }
+
+export async function getUsers(limitValue?: number) {
+  try {
+    let users;
+    if (limitValue) {
+      users = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.userCollectionId,
+        [Query.orderDesc("$createdAt"), Query.limit(limitValue)]
+      );
+    } else {
+      users = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.userCollectionId,
+        [Query.orderDesc("$createdAt")]
+      );
+    }
+
+    if (!users) throw Error;
+
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
