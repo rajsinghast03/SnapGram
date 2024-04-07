@@ -1,4 +1,7 @@
-import { useGetUsers } from "@/lib/react-query/queriesAndMutations";
+import {
+  useGetCurrentUser,
+  useGetUsers,
+} from "@/lib/react-query/queriesAndMutations";
 import UserCard from "./UserCard";
 import Loader from "./Loader";
 import { Models } from "appwrite";
@@ -9,8 +12,12 @@ export default function RightSideBar() {
     isLoading: isUserLoading,
     isError: isErrorCreators,
   } = useGetUsers();
-
+  const { data: currentUser } = useGetCurrentUser();
   if (isErrorCreators) throw Error("Error while fetching some creators");
+
+  const filteredUsers = users?.documents.filter(
+    (user) => user.$id !== currentUser?.$id
+  );
 
   return (
     <>
@@ -19,8 +26,8 @@ export default function RightSideBar() {
         {isUserLoading && !users ? (
           <Loader />
         ) : (
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5">
-            {users?.documents.map((user: Models.Document) => (
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {filteredUsers?.map((user: Models.Document) => (
               <UserCard key={user.$id} user={user} />
             ))}
           </div>

@@ -1,5 +1,6 @@
 import Loader from "@/components/shared/Loader";
 import PostCard from "@/components/shared/PostCard";
+import RightSideBar from "@/components/shared/RightSideBar";
 import { useGetRecentPosts } from "@/lib/react-query/queriesAndMutations";
 import { Models } from "appwrite";
 
@@ -11,21 +12,27 @@ export default function Home() {
   } = useGetRecentPosts();
 
   return (
-    <div className="flex flex-1">
-      <div className="home-container">
-        <div className="home-posts">
-          <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
-          {isPostLoading && !posts ? (
-            <Loader />
-          ) : (
-            <ul className="flex flex-col gap-9 w-full flex-1">
-              {posts?.documents.map((post: Models.Document) => (
-                <PostCard post={post} key={post.caption} />
-              ))}
-            </ul>
-          )}
+    <>
+      <div className="flex flex-1">
+        <div className="home-container">
+          <div className="home-posts">
+            <h2 className="h3-bold md:h2-bold text-left w-full flex gap-2">
+              <img src="/assets/icons/home.svg" height={30} width={30} />
+              Home Feed
+            </h2>
+            {isPostLoading && !posts ? (
+              <Loader />
+            ) : (
+              <ul className="flex flex-col gap-9 w-full flex-1">
+                {posts?.documents.map((post: Models.Document) => (
+                  <PostCard post={post} key={post.caption} />
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <RightSideBar />
+    </>
   );
 }
