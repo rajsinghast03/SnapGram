@@ -29,7 +29,7 @@ export default function UpdateProfile() {
   const { id } = useParams();
   const { user, setUser } = useUserContext();
   const navigate = useNavigate();
-  const { mutateAsync: updateUser, isLoading: isLoadingUpdate } =
+  const { mutateAsync: updateUser, isPending: isLoadingUpdate } =
     useUpdateUser();
 
   const form = useForm<z.infer<typeof ProfileValidation>>({
@@ -52,13 +52,13 @@ export default function UpdateProfile() {
     );
 
   async function handleUpdate(value: z.infer<typeof ProfileValidation>) {
-    const updatedUser = updateUser({
-      userId: currentUser.$id,
+    const updatedUser = await updateUser({
+      userId: currentUser?.$id || "",
       name: value.name,
       bio: value.bio,
       file: value.file,
-      imageId: currentUser.imageId,
-      imageUrl: currentUser.imageUrl,
+      imageId: currentUser?.imageId,
+      imageUrl: currentUser?.imageUrl,
     });
 
     if (!updatedUser) {

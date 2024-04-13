@@ -11,7 +11,7 @@ export default function RightSideBar() {
     data: users,
     isLoading: isUserLoading,
     isError: isErrorCreators,
-  } = useGetUsers();
+  } = useGetUsers(7);
   const { data: currentUser } = useGetCurrentUser();
   if (isErrorCreators) throw Error("Error while fetching some creators");
 
@@ -26,7 +26,7 @@ export default function RightSideBar() {
         {isUserLoading && !users ? (
           <Loader />
         ) : (
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 ">
             {filteredUsers?.map((user: Models.Document) => (
               <UserCard key={user.$id} user={user} />
             ))}
