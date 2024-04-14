@@ -3,6 +3,8 @@ import { multiFormatDateString } from "@/lib/utils";
 import { Models } from "appwrite";
 import { Link } from "react-router-dom";
 import PostStats from "./PostStats";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import Loader from "./Loader";
 
 type PostCardProps = {
   post: Models.Document;
@@ -63,11 +65,20 @@ export default function PostCard({ post }: PostCardProps) {
             ))}
           </ul>
         </div>
-        <img
+        <div>
+          <LazyLoadImage
+            key={post.$id}
+            src={post.imageUrl}
+            alt="post image"
+            className="post-card_img"
+            placeholder={<Loader />}
+          />
+        </div>
+        {/* <img
           src={post.imageUrl || "assets/icons/profile-placeholder.svg"}
           className="post-card_img"
           alt="post image"
-        />
+        /> */}
       </Link>
       <PostStats post={post} userId={user.id} />
     </div>
