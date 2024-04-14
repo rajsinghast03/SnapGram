@@ -5,7 +5,7 @@ import { useGetCurrentUser } from "@/lib/react-query/queriesAndMutations";
 export default function LikedPosts() {
   const { data: currentUser, isLoading } = useGetCurrentUser();
 
-  if (!currentUser)
+  if (!currentUser || isLoading)
     return (
       <div className="flex-center w-full h-full">
         <Loader />

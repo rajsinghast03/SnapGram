@@ -1,6 +1,7 @@
 import Loader from "@/components/shared/Loader";
 import PostCard from "@/components/shared/PostCard";
 import RightSideBar from "@/components/shared/RightSideBar";
+import { toast } from "@/components/ui/use-toast";
 import { useGetRecentPosts } from "@/lib/react-query/queriesAndMutations";
 import { Models } from "appwrite";
 
@@ -10,6 +11,11 @@ export default function Home() {
     isPending: isPostLoading,
     isError: isErrorPosts,
   } = useGetRecentPosts();
+
+  if (isErrorPosts) {
+    toast({ title: "Something went wrong!" });
+    return;
+  }
 
   return (
     <>

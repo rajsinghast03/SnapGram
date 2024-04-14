@@ -13,8 +13,8 @@ export default function SearchResults({
 }: SearchResultsProps) {
   if (isSearchedPostFetching) return <Loader />;
 
-  if (searchedPosts && searchedPosts.documents.length > 0) {
-    return <GridPostList posts={searchedPosts.documents} />;
+  if (searchedPosts && searchedPosts?.documents.length > 0) {
+    return <GridPostList posts={searchedPosts?.documents} />;
   }
 
   return (

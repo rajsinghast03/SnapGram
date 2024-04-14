@@ -1,7 +1,6 @@
 import { ID, Query } from "appwrite";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
-import PostStats from "@/components/shared/PostStats";
 
 export async function createUserAccount(user: INewUser) {
   try {
