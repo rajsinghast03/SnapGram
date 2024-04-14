@@ -2,7 +2,7 @@
 
   <img src="./public/assets/images/logo.svg" alt="logo" width="90" height="auto">
 
-  <h2>Snapgram/h2>
+  <h2>Snapgram</h2>
   
   <hr>
 
@@ -12,7 +12,7 @@
 
 <!-- Brief -->
 <p align="center">
-The Wild Oasis hotel management app is a full-featured React web application that allows hotel employees to manage cabins, bookings, and guests. The app uses Supabase for its backend and implements a variety of advanced React techniques, such as HOCs, the Compound Component Pattern, and React Query.
+Explore social media with this user-friendly platform that has a nice look and lots of features. Easily create and explore posts, and enjoy a strong authentication system and quick data fetching using React Query for a smooth user experience.
 </p>
 
 <!-- Screenshot -->
@@ -34,45 +34,30 @@ The Wild Oasis hotel management app is a full-featured React web application tha
 
 ## Key Features
 
-- Users of the app are hotel employees. They need to be logged into the application to perform tasks
+👉 Authentication System: A robust authentication system ensuring security and user privacy
 
-- New users can only be signed up inside the applications (to guarantee that only actual hotel employees can get accounts)
+👉 Explore Page: Homepage for users to explore posts, with a featured section for top creators
 
-- Users should be able to upload an avatar, and change their name and password
+👉 Like and Save Functionality: Enable users to like and save posts, with dedicated pages for managing liked and saved content
 
-- App needs a table view with all cabins, showing the cabin photo, name, capacity, price, and current discount
+👉 Detailed Post Page: A detailed post page displaying content and related posts for an immersive user experience
 
-- Users should be able to update or delete a cabin, and to create new cabins (including uploading a photo)
+👉 Profile Page: A user profile page showcasing liked posts and providing options to edit the profile
 
-- App needs a table view with all bookings, showing arrival and departure dates, status, and paid amount, as well as cabin and guest data
+👉 Browse Other Users: Allow users to browse and explore other users' profiles and posts
 
-- The booking status can be "unconfirmed" (booked but not yet checked in), "checked in", or "checked out". The table should be filterable by this important status
+👉 Create Post Page: Implement a user-friendly create post page with effortless file management, storage, and drag-drop feature
 
-- Other booking data includes: number of guests, number of nights, guest observations, whether they booked breakfast, breakfast price
+👉 Edit Post Functionality: Provide users with the ability to edit the content of their posts at any time
 
-- Users should be able to delete, check in, or check out a booking as the guest arrives
+👉 Responsive UI with Bottom Bar: A responsive UI with a bottom bar, enhancing the mobile app feel for seamless navigation
 
-- Bookings may not have been paid yet on guest arrival. Therefore, on check in, users need to accept payment (outside the app), and then confirm that payment has been received (inside the app)
+👉 React Query Integration: Incorporate the React Query (Tanstack Query) data fetching library for, Auto caching to enhance performance, Parallel queries for efficient data retrieval, First-class Mutations, etc
 
-- On check in, the guest should have the ability to add breakfast for the entire stay, if they hadn't already
+👉 Backend as a Service (BaaS) - Appwrite: Utilize Appwrite as a Backend as a Service solution for streamlined backend development, offering features like authentication, database, file storage, and more
 
-- Guest data should contain: full name, email, national ID, nationality, and a country flag for easy identification
+and many more, including code architecture and reusability
 
-- The initial app screen should be a dashboard, to display important information for the last 7, 30, or 90 days:
-
-  - A list of guests checking in and out on the current day. Users should be able to perform these tasks from here
-
-  - Statistics on recent bookings, sales, check ins, and occupancy rate
-
-  - A chart showing all daily hotel sales, showing both "total" sales and "extras" sales (only breakfast at the moment)
-
-  - A chart showing statistics on stay durations, as this is an important metric for the hotel
-
-- Users should be able to define a few application-wide settings: breakfast price, min and max nights/booking, max guests/booking
-
-- Dark mode
-
-## My process
 
 ### Built with
 
@@ -80,7 +65,8 @@ The Wild Oasis hotel management app is a full-featured React web application tha
 - Appwrite
 - React Query
 - React Router
-- React Hook Form 
+- React Hook Form
+- Typescript
 - React lazy-load-image
 - Shadcn
 - Vite
@@ -121,26 +107,48 @@ By building "The Wild Oasis" project with these technologies and concepts, I've 
 
 ### Installation
 
-- Clone this repo:
+**Prerequisites**
 
-```sh
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+**Cloning the Repository**
+
+```bash
 git clone https://github.com/rajsinghast03/SnapGram.git
+cd SnapGram
 ```
 
-- Install dependencies:
+**Installation**
 
-```sh
+Install the project dependencies using npm:
+
+```bash
 npm install
 ```
 
-- Build command:
+**Set Up Environment Variables**
 
-```sh
-npm run build
+Create a new file named `.env` in the root of your project and add the following content:
+
+```env
+VITE_APPWRITE_URL=
+VITE_APPWRITE_PROJECT_ID=
+VITE_APPWRITE_DATABASE_ID=
+VITE_APPWRITE_STORAGE_ID=
+VITE_APPWRITE_USER_COLLECTION_ID=
+VITE_APPWRITE_POST_COLLECTION_ID=
+VITE_APPWRITE_SAVES_COLLECTION_ID=
 ```
 
-- Live server:
+Replace the placeholder values with your actual Appwrite credentials. You can obtain these credentials by signing up on the [Appwrite website](https://appwrite.io/).
 
-```sh
-npm run dev
+**Running the Project**
+
+```bash
+npm start
 ```
+
