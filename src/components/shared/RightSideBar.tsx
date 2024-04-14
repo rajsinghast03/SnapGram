@@ -11,7 +11,7 @@ export default function RightSideBar() {
     data: users,
     isLoading: isUserLoading,
     isError: isErrorCreators,
-  } = useGetUsers(7);
+  } = useGetUsers(6);
   const { data: currentUser } = useGetCurrentUser();
   if (isErrorCreators) throw Error("Error while fetching some creators");
 

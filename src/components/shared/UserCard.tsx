@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Models } from "appwrite";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/black-and-white.css";
 
 type UserPropType = {
   user: Models.Document;
@@ -13,7 +15,18 @@ export default function UserCard({ user }: UserPropType) {
         to={`/profile/${user.$id}`}
         className="flex flex-col items-center justify-center"
       >
-        <img src={user.imageUrl} className="h-[54px] w-[54px] rounded-full" />
+        <div>
+          <LazyLoadImage
+            key={user.$id}
+            src={user.imageUrl}
+            alt="creator"
+            className="h-[54px] w-[54px] rounded-full"
+            placeholderSrc="assets/icons/profile-placeholder.svg"
+            width={"100%"}
+            effect="black-and-white"
+          />
+        </div>
+        {/* <img src={user.imageUrl} className="h-[54px] w-[54px] rounded-full" /> */}
 
         <p className="small-medium mt-2 ">{user.name}</p>
       </Link>

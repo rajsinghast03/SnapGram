@@ -4,7 +4,8 @@ import { Models } from "appwrite";
 import { Link } from "react-router-dom";
 import PostStats from "./PostStats";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Loader from "./Loader";
+import "react-lazy-load-image-component/src/effects/black-and-white.css";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 type PostCardProps = {
   post: Models.Document;
@@ -18,14 +19,25 @@ export default function PostCard({ post }: PostCardProps) {
       <div className="flex-between">
         <div className="flex items-center gap-3">
           <Link to={`/profile/${post.creator.$id}`}>
-            <img
+            <div>
+              <LazyLoadImage
+                key={post?.$id}
+                src={post?.creator?.imageUrl}
+                alt="creator"
+                className="rounded-full w-12 lg:h-12"
+                width={"100%"}
+                placeholderSrc="assets/icons/profile-placeholder.svg"
+                effect="black-and-white"
+              />
+            </div>
+            {/* <img
               src={
                 post?.creator?.imageUrl ||
                 "assets/icons/profile-placeholder.svg"
               }
               alt="creator"
               className="rounded-full w-12 lg:h-12"
-            />
+            /> */}
           </Link>
           <div className="flex flex-col">
             <p className="base-medium lg:body-bold text-light-1">
@@ -71,7 +83,9 @@ export default function PostCard({ post }: PostCardProps) {
             src={post.imageUrl}
             alt="post image"
             className="post-card_img"
-            placeholder={<Loader />}
+            width={"100%"}
+            placeholderSrc="assets/icons/posts.svg"
+            effect="blur"
           />
         </div>
         {/* <img

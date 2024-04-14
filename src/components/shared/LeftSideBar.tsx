@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useUserContext } from "@/context/AuthContext";
 import { sidebarLinks } from "@/constants";
 import { INavLink } from "@/types";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/black-and-white.css";
 
 export default function LeftSideBar() {
   const { pathname } = useLocation();
@@ -28,11 +30,22 @@ export default function LeftSideBar() {
           />
         </Link>
         <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
-          <img
+          <div>
+            <LazyLoadImage
+              key={user.id}
+              src={user.imageUrl}
+              alt="profile"
+              className="h-14 w-14 rounded-full"
+              placeholderSrc="/assets/icons/profile-placeholder.svg"
+              width={"100%"}
+              effect="black-and-white"
+            />
+          </div>
+          {/* <img
             src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
             alt="profile"
             className="h-14 w-14 rounded-full"
-          />
+          /> */}
           <div className="flex flex-col ">
             <p className="body-bold">{user.name}</p>
             <p className="small-regular text-light-3">{user.username}</p>
