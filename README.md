@@ -2,10 +2,6 @@
 
   <img src="./public/assets/images/logo.svg" alt="logo" width="90" height="auto">
 
-  <h2>Snapgram</h2>
-  
-  <hr>
-
 </div>
 
 
@@ -16,21 +12,11 @@ Explore social media with this user-friendly platform that has a nice look and l
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://the-forest-home.vercel.app/">
+<a align="center" href="https://snap-gram-sigma.vercel.app/">
 
 ![Screenshot](./public/assets/images/thumbnail.png)
 
 </a>
-
-## Table of contents
-
-- [Key Features](#key-features)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-- [Installation](#installation)
-
-
 
 ## Key Features
 
@@ -70,40 +56,6 @@ and many more, including code architecture and reusability
 - React lazy-load-image
 - Shadcn
 - Vite
-
-### What I Learned
-
-- **React Fundamentals:** I gained a solid understanding of React, including components, state management, and routing, allowing me to build dynamic user interfaces.
-
-- **Authentication and User Management:** I implemented user authentication using Supabase, ensuring secure access for hotel employees and learned to manage user profiles effectively.
-
-- **Form Handling:** I became proficient in managing forms with React Hook Form, simplifying form validation, submission, and data handling.
-
-- **Data Fetching and Caching:** React Query was employed to fetch and cache data, enhancing the performance and responsiveness of the application.
-
-- **Real-time Updates:** I integrated real-time data updates using Supabase, enabling instant changes to cabin and booking data.
-
-- **Responsive UI Design:** Styled Components were used to create responsive and visually appealing user interfaces that adapt to various screen sizes.
-
-- **Toast Notifications:** React Hot Toast added user-friendly notifications for various actions within the app, improving the overall user experience.
-
-- **Data Visualization:** Recharts was employed for creating charts and visual representations of vital statistics, aiding in data analysis and decision-making.
-
-- **Routing and Navigation:** React Router facilitated smooth navigation and seamless transitions between different views and pages within the application.
-
-- **Settings Management:** I learned to allow users to configure application-wide settings, such as breakfast pricing and booking constraints.
-
-- **Higher-Order Components (HOC):** I utilized Higher-Order Components to enhance code reusability and share common functionalities among multiple components.
-
-- **Compound Component Pattern:** I implemented the Compound Component Pattern to create cohesive and reusable component groups, improving the organization and maintainability of the code.
-
-- **Dark Mode Implementation:** Dark mode was implemented to offer users a personalized visual experience and accommodate different preferences.
-
-- **Git Version Control:** I practiced effective version control using Git, allowing for code management, and tracking project changes.
-
-- **Project Planning and Management:** I gained experience in planning and managing a large-scale project, including feature development, bug fixing, and testing.
-
-By building "The Wild Oasis" project with these technologies and concepts, I've developed a comprehensive set of skills and knowledge that can be applied to future projects and real-world scenarios. This experience has not only expanded my technical expertise but also improved my problem-solving capabilities.
 
 ### Installation
 
